@@ -4,14 +4,16 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
 const port = 6005;
+require('dotenv').config()
 app.use(cors());
 
+console.log(process.env.MONGO_URL);
 // Use body-parser middleware to parse JSON and form data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(
-  'mongodb+srv://Sarvesh:Sarvesh123@cluster1.jz8t5ag.mongodb.net/Entry'
+  process.env.MONGO_URL
 );
 
 const entrySchema = new mongoose.Schema({
