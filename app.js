@@ -21,7 +21,9 @@ const entrySchema = new mongoose.Schema({
 });
 
 const Entry = mongoose.model('Entry', entrySchema);
-
+app.get("/",(req,res)=>{
+  res.send("Parking Management backend")
+})
 // Endpoint for handling entry form submissions
 app.post('/entry', async (req, res) => {
   const entryData = req.body;
